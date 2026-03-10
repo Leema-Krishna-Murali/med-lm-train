@@ -79,7 +79,7 @@ The RL config uses the published [`PrimeIntellect/Qwen3-0.6B-Reverse-Text-SFT`](
 Submit a 1-GPU SFT job via `medarc_slurm`:
 
 ```bash
-medarc_slurm sft examples/reverse_text/sft.toml \
+medarc_slurm sft --config examples/reverse_text/sft.toml \
     --output-dir outputs/examples/reverse-sft \
     --gpus 1 \
     --auto-auth \
@@ -89,7 +89,7 @@ medarc_slurm sft examples/reverse_text/sft.toml \
 Or preview without submitting:
 
 ```bash
-medarc_slurm sft examples/reverse_text/sft.toml \
+medarc_slurm sft --config examples/reverse_text/sft.toml \
     --output-dir outputs/examples/reverse-sft \
     --gpus 1 \
     --auto-auth \
@@ -137,7 +137,7 @@ rl @ examples/reverse_text/rl_multi.toml
 This example shares a single GPU between the trainer and vLLM inference server. The config lowers vLLM `gpu_memory_utilization` so the trainer has headroom — if you still see OOMs, reduce it further.
 
 ```bash
-medarc_slurm rl examples/reverse_text/rl_slurm.toml \
+medarc_slurm rl --config examples/reverse_text/rl_slurm.toml \
     --output-dir outputs/examples/reverse-rl \
     --single-gpu \
     --auto-auth \
@@ -147,7 +147,7 @@ medarc_slurm rl examples/reverse_text/rl_slurm.toml \
 Or preview without submitting:
 
 ```bash
-medarc_slurm rl examples/reverse_text/rl_slurm.toml \
+medarc_slurm rl --config examples/reverse_text/rl_slurm.toml \
     --output-dir outputs/examples/reverse-rl \
     --single-gpu \
     --auto-auth \
